@@ -34,7 +34,7 @@ git config --global http.proxy <proxy>
 npm config set proxy <proxy>
 ```
 
-_**注意：**这不会自动设置环境变量 `http_proxy`、`HTTP_PROXY`、`https_proxy`、`HTTPS_PROXY`。_
+_**注意：** 这不会自动设置环境变量 `http_proxy`、`HTTP_PROXY`、`https_proxy`、`HTTPS_PROXY`。_
 
 ## 用法
 
@@ -53,7 +53,7 @@ npm install --global @wang1212/itools
 itools
 ```
 
-_**注意：**在本地全局安装后，除过命令 `itools` 之外，还对每个工具提供一个命令，如 `iproxy`。换句话说，可以直接运行 `iproxy` 命令而不是先运行 `itools` 再选择 **iproxy** 工具。_
+_**注意：** 在本地全局安装后，除过命令 `itools` 之外，还对每个工具提供一个命令，如 `iproxy`。换句话说，可以直接运行 `iproxy` 命令而不是先运行 `itools` 再选择 **iproxy** 工具。_
 
 ## 灵感
 

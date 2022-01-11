@@ -53,7 +53,7 @@ npm install --global @wang1212/itools
 itools
 ```
 
-_**Tips：**after a local global installation, a command such as `iproxy` is provided for each tool in addition to the command `itools`. In other words, instead of running `itools` and then selecting the **iproxy** tool, you can run the `iproxy` command directly._
+_**Tips:** after a local global installation, a command such as `iproxy` is provided for each tool in addition to the command `itools`. In other words, instead of running `itools` and then selecting the **iproxy** tool, you can run the `iproxy` command directly._
 
 ## Inspiration
 
