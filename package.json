@@ -1,0 +1,73 @@
+{
+  "name": "@wang1212/itools",
+  "version": "0.1.0",
+  "description": "common toolbox.",
+  "keywords": [
+    "nodejs",
+    "npm",
+    "proxy"
+  ],
+  "homepage": "https://github.com/wang1212/itools#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wang1212/itools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wang1212/itools/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "author": "wang1212",
+  "bin": {
+    "itools": "index.js",
+    "inpm-utils": "bin/inpm-utils.js",
+    "iproxy": "bin/iproxy.js"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint src/ --config=.eslintrc.cjs --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
+    "prepublishOnly": "npm run lint",
+    "release": "np --message='v%s'"
+  },
+  "lint-staged": {
+    "*.{js}": "npm run lint"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "index.js"
+  ],
+  "peerDependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-pretty": "^4.1.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsdoc": "^37.4.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-sonarjs": "^0.10.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "np": "*",
+    "prettier": "2.3.2"
+  },
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "conf": "^10.1.1",
+    "inquirer": "^8.2.0",
+    "shelljs": "^0.8.5",
+    "tasuku": "^1.0.2"
+  }
+}
