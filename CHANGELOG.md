@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.1 (2022-01-13)
+
+- fix: linux shebang line does not support multiple arguments :bug: 9873a01
+
+https://github.com/wang1212/itools/compare/v0.1.0...v0.1.1
+
 ## v0.1.0 (2022-01-12)
 
 :package: Common Toolbox.
