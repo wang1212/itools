@@ -1,3 +1,3 @@
-#!/usr/bin/env node --experimental-specifier-resolution=node
+#!/usr/bin/env node
 
-import '../src/cli/iproxy';
+import '../src/cli/iproxy.js';

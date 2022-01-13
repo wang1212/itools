@@ -7,7 +7,7 @@ import shell from 'shelljs';
 import task from 'tasuku';
 import inquirer from 'inquirer';
 import Conf from 'conf';
-import pkg from '../helper/getPackage';
+import pkg from '../helper/getPackage.js';
 
 const DEFAULT_PROXY = 'socks5://127.0.0.1:10808';
 

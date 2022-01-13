@@ -1,5 +1,6 @@
 // see docs: https://eslint.org/docs/user-guide/configuring
 
+// eslint-disable-next-line no-undef
 module.exports = {
   ignorePatterns: ['node_modules'],
   parserOptions: {
@@ -23,6 +24,8 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:jsdoc/recommended',
   ],
-  rules: {},
+  rules: {
+    'import/extensions': ['error', 'ignorePackages'],
+  },
   globals: {},
 };

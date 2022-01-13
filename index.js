@@ -1,4 +1,4 @@
-#!/usr/bin/env node --experimental-specifier-resolution=node
+#!/usr/bin/env node
 
 /**
  * itools - Common toolbox.
@@ -24,4 +24,4 @@ if (major < 12 || (major === 12 && minor <= 20) || (major === 14 && minor <= 14)
 }
 
 // eslint-disable-next-line node/no-unsupported-features/es-syntax
-import('./bin/itools').catch((err) => console.error(err));
+import('./src/cli/itools.js').catch((err) => console.error(err));

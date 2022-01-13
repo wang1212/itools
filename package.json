@@ -27,6 +27,7 @@
     "iproxy": "bin/iproxy.js"
   },
   "scripts": {
+    "node": "node --experimental-specifier-resolution=node",
     "prepare": "husky install",
     "lint": "eslint src/ --config=.eslintrc.cjs --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
     "prepublishOnly": "npm run lint",
