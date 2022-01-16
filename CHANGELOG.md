@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.3 (2022-01-16)
+
+- feat: inpm-utils cli add `njt` package :sparkles: e130486
+
+https://github.com/wang1212/itools/compare/v0.1.1...v0.1.3
+
 ## v0.1.1 (2022-01-13)
 
 - fix: linux shebang line does not support multiple arguments :bug: 9873a01
