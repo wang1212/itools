@@ -7,7 +7,7 @@ import shell from 'shelljs';
 import task from 'tasuku';
 import inquirer from 'inquirer';
 
-const PRESET_PACKAGES = ['nrm', 'npm-check-updates', 'git-open', 'http-server'];
+const PRESET_PACKAGES = ['nrm', 'npm-check-updates', 'njt', 'git-open', 'http-server'];
 
 /**
  *
@@ -18,10 +18,12 @@ async function start() {
     name: 'answer',
     type: 'confirm',
     default: true,
-    // eslint-disable-next-line sonarjs/no-nested-template-literals
-    message: `The following useful tool packages: \n${PRESET_PACKAGES.map((name) => chalk.green(`   - ${name}`)).join(
-      '\n'
-    )} \n\nwill be installed globally, are you sure?`,
+    message: [
+      'The following useful tool packages: \n',
+      ...PRESET_PACKAGES.map((name) => chalk.green(`    - ${name}`)).join('\n'),
+      '\n\n',
+      'will be installed globally, are you sure?',
+    ].join(''),
   });
 
   if (!answers.answer) return;
