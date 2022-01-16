@@ -15,7 +15,9 @@ const minor = semver[1];
 
 if (major < 12 || (major === 12 && minor <= 20) || (major === 14 && minor <= 14)) {
   console.error(
-    chalk.red(`You are running Node ${currentNodeVersion}. \nThis package is now pure ESM, read https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c. \nCreate Web App requires Node 12.20, 14.14 or higher. \nPlease update your version of Node.
+    chalk.red(`You are running Node ${currentNodeVersion}. \nThis package is now pure ESM, read ${chalk.blue(
+      'https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c'
+    )}. \nCreate Web App requires Node 12.20, 14.14 or higher. \nPlease update your version of Node.
 		`)
   );
 

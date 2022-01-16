@@ -20,6 +20,7 @@ This tool will install some useful npm packages **globally**.
 
 - [nrm](https://www.npmjs.com/package/nrm)
 - [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)
+- [njt](https://njt.vercel.app/)
 - [git-open](https://www.npmjs.com/package/git-open)
 - [http-server](https://www.npmjs.com/package/http-server)
 

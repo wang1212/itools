@@ -20,6 +20,7 @@ _**这个包现在是纯 ESM，查看[这里](https://gist.github.com/sindresorh
 
 - [nrm](https://www.npmjs.com/package/nrm)
 - [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)
+- [njt](https://njt.vercel.app/)
 - [git-open](https://www.npmjs.com/package/git-open)
 - [http-server](https://www.npmjs.com/package/http-server)
 
