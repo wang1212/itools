@@ -25,7 +25,6 @@ async function start() {
     choices: TOOLS,
   });
 
-  // eslint-disable-next-line node/no-unsupported-features/es-syntax
   import(answers.tool).catch((err) => console.error(err));
 }
 

@@ -1,7 +1,6 @@
 /**
  * iproxy cli
  */
-// eslint-disable-next-line import/no-unresolved, node/no-missing-import
 import chalk from 'chalk';
 import shell from 'shelljs';
 import task from 'tasuku';
@@ -17,7 +16,10 @@ const ACTION = {
   CONFIG: { text: 'configure the proxy', value: 'config' },
 };
 
-const configStore = new Conf({ projectName: pkg.name, defaults: { proxy: DEFAULT_PROXY } });
+const configStore = new Conf({
+  projectName: pkg.name,
+  defaults: { proxy: DEFAULT_PROXY },
+});
 // console.log(configStore.path);
 // console.log(configStore.store);
 
@@ -63,13 +65,17 @@ async function enable() {
       // https://git-scm.com/docs/git-config#Documentation/git-config.txt-httpproxy
       // https://gist.github.com/evantoli/f8c23a37eb3558ab8765
       // * http_proxy HTTPS_PROXY
-      shell.exec(`git config --global http.proxy ${proxy} && git config --global --get http.proxy`, { silent: true }, (error, stdout, stderr) => {
-        if (error || stderr || stdout.trim() !== proxy) {
-          setError(stderr);
-        }
+      shell.exec(
+        `git config --global http.proxy ${proxy} && git config --global --get http.proxy`,
+        { silent: true },
+        (error, stdout, stderr) => {
+          if (error || stderr || stdout.trim() !== proxy) {
+            setError(stderr);
+          }
 
-        resolve();
-      });
+          resolve();
+        }
+      );
 
       //
     });
@@ -89,13 +95,18 @@ async function enable() {
       // https://docs.npmjs.com/cli/v7/using-npm/config#https-proxy
       // * HTTP_PROXY HTTPS_PROXY
       // eslint-disable-next-line sonarjs/no-identical-functions
-      shell.exec(`npm config set proxy ${proxy} && npm config get proxy`, { silent: true }, (error, stdout, stderr) => {
-        if (error || stderr || stdout.trim() !== proxy) {
-          setError(stderr);
-        }
+      shell.exec(
+        `npm config set proxy ${proxy} && npm config get proxy`,
+        { silent: true },
+        // eslint-disable-next-line sonarjs/no-identical-functions
+        (error, stdout, stderr) => {
+          if (error || stderr || stdout.trim() !== proxy) {
+            setError(stderr);
+          }
 
-        resolve();
-      });
+          resolve();
+        }
+      );
 
       //
     });
@@ -121,22 +132,30 @@ async function disable() {
       // https://git-scm.com/docs/git-config#Documentation/git-config.txt-httpproxy
       // https://gist.github.com/evantoli/f8c23a37eb3558ab8765
       // * http_proxy HTTPS_PROXY
-      shell.exec(`git config --global --unset http.proxy`, { silent: true }, (error, stdout, stderr) => {
-        if (error || stderr) {
-          shell.exec(`git config --global --get http.proxy`, { silent: true }, (error1, stdout1, stderr1) => {
-            // https://git-scm.com/docs/git-config#Documentation/git-config.txt---get
-            if (error1 !== 1 || stderr1) {
-              setError(stderr);
-            }
+      shell.exec(
+        `git config --global --unset http.proxy`,
+        { silent: true },
+        (error, stdout, stderr) => {
+          if (error || stderr) {
+            shell.exec(
+              `git config --global --get http.proxy`,
+              { silent: true },
+              (error1, stdout1, stderr1) => {
+                // https://git-scm.com/docs/git-config#Documentation/git-config.txt---get
+                if (error1 !== 1 || stderr1) {
+                  setError(stderr);
+                }
 
-            resolve();
-          });
+                resolve();
+              }
+            );
 
-          return;
+            return;
+          }
+
+          resolve();
         }
-
-        resolve();
-      });
+      );
 
       //
     });
@@ -155,13 +174,17 @@ async function disable() {
       // https://docs.npmjs.com/cli/v7/using-npm/config#proxy
       // https://docs.npmjs.com/cli/v7/using-npm/config#https-proxy
       // * HTTP_PROXY HTTPS_PROXY
-      shell.exec(`npm config delete proxy && npm config get proxy`, { silent: true }, (error, stdout, stderr) => {
-        if (error || stderr || stdout.trim() !== 'null') {
-          setError(stderr);
-        }
+      shell.exec(
+        `npm config delete proxy && npm config get proxy`,
+        { silent: true },
+        (error, stdout, stderr) => {
+          if (error || stderr || stdout.trim() !== 'null') {
+            setError(stderr);
+          }
 
-        resolve();
-      });
+          resolve();
+        }
+      );
 
       //
     });
