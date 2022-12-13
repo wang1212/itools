@@ -69,7 +69,11 @@ async function enable() {
         `git config --global http.proxy ${proxy} && git config --global --get http.proxy`,
         { silent: true },
         (error, stdout, stderr) => {
-          if (error || stderr || stdout.trim() !== proxy) {
+          if (
+            error ||
+            stderr ||
+            !stdout.trim().match(new RegExp(`${proxy}/?`))
+          ) {
             setError(stderr);
           }
 
@@ -100,7 +104,11 @@ async function enable() {
         { silent: true },
         // eslint-disable-next-line sonarjs/no-identical-functions
         (error, stdout, stderr) => {
-          if (error || stderr || stdout.trim() !== proxy) {
+          if (
+            error ||
+            stderr ||
+            !stdout.trim().match(new RegExp(`${proxy}/?`))
+          ) {
             setError(stderr);
           }
 
