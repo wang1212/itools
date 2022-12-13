@@ -36,7 +36,7 @@ Essentially, it does something like this:
 
 ```bash
 git config --global http.proxy <proxy>
-npm config set proxy <proxy>
+npm config --global set proxy <proxy>
 ```
 
 _**Tips:** this does not automatically set the environment variables `http_proxy`, `HTTP_PROXY`, `https_proxy`, `HTTPS_PROXY`._

@@ -8,7 +8,7 @@ import inquirer from 'inquirer';
 import Conf from 'conf';
 import pkg from '../helper/getPackage.js';
 
-const DEFAULT_PROXY = 'socks5://127.0.0.1:10808';
+const DEFAULT_PROXY = 'http://127.0.0.1:10809';
 
 const ACTION = {
   ENABLE: { text: 'enable proxy', value: 'enable' },
@@ -96,7 +96,7 @@ async function enable() {
       // * HTTP_PROXY HTTPS_PROXY
       // eslint-disable-next-line sonarjs/no-identical-functions
       shell.exec(
-        `npm config set proxy ${proxy} && npm config get proxy`,
+        `npm config --global set proxy ${proxy} && npm config --global get proxy`,
         { silent: true },
         // eslint-disable-next-line sonarjs/no-identical-functions
         (error, stdout, stderr) => {
@@ -175,7 +175,7 @@ async function disable() {
       // https://docs.npmjs.com/cli/v7/using-npm/config#https-proxy
       // * HTTP_PROXY HTTPS_PROXY
       shell.exec(
-        `npm config delete proxy && npm config get proxy`,
+        `npm config --global delete proxy && npm config --global get proxy`,
         { silent: true },
         (error, stdout, stderr) => {
           if (error || stderr || stdout.trim() !== 'null') {

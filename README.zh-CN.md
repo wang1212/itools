@@ -36,7 +36,7 @@ _**这个包现在是纯 ESM，查看[这里](https://gist.github.com/sindresorh
 
 ```bash
 git config --global http.proxy <proxy>
-npm config set proxy <proxy>
+npm config --global set proxy <proxy>
 ```
 
 _**注意：** 这不会自动设置环境变量 `http_proxy`、`HTTP_PROXY`、`https_proxy`、`HTTPS_PROXY`。_
