@@ -48,7 +48,7 @@
   "devDependencies": {
     "@commitlint/cli": "18.5.0",
     "@commitlint/config-conventional": "18.5.0",
-    "@wang1212/eslint-config": "0.2.1",
+    "@wang1212/eslint-config": "0.4.0",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.56.0",
