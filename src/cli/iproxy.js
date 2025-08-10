@@ -183,7 +183,7 @@ async function disable() {
       // https://docs.npmjs.com/cli/v7/using-npm/config#https-proxy
       // * HTTP_PROXY HTTPS_PROXY
       shell.exec(
-        `npm config --global delete proxy && npm config --global delete https-proxy && npm config --global get proxy`,
+        `npm config --global delete proxy && npm config --global delete https-proxy && npm config --global get proxy && npm config --global get https-proxy`,
         { silent: true },
         (error, stdout, stderr) => {
           if (error || stderr || stdout.trim() !== 'null') {
