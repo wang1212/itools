@@ -100,7 +100,7 @@ async function enable() {
       // * HTTP_PROXY HTTPS_PROXY
       // eslint-disable-next-line sonarjs/no-identical-functions
       shell.exec(
-        `npm config --global set proxy ${proxy} && npm config --global get proxy`,
+        `npm config --global set proxy ${proxy} && npm config --global set https-proxy ${proxy} && npm config --global get proxy && npm config --global get https-proxy`,
         { silent: true },
         // eslint-disable-next-line sonarjs/no-identical-functions
         (error, stdout, stderr) => {
@@ -183,7 +183,7 @@ async function disable() {
       // https://docs.npmjs.com/cli/v7/using-npm/config#https-proxy
       // * HTTP_PROXY HTTPS_PROXY
       shell.exec(
-        `npm config --global delete proxy && npm config --global get proxy`,
+        `npm config --global delete proxy && npm config --global delete https-proxy && npm config --global get proxy`,
         { silent: true },
         (error, stdout, stderr) => {
           if (error || stderr || stdout.trim() !== 'null') {
