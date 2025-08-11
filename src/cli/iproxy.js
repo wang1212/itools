@@ -8,7 +8,7 @@ import inquirer from 'inquirer';
 import Conf from 'conf';
 import pkg from '../helper/getPackage.js';
 
-const DEFAULT_PROXY = 'http://127.0.0.1:10809';
+const DEFAULT_PROXY = 'socks5://127.0.0.1:7897';
 
 const ACTION = {
   ENABLE: { text: 'enable proxy', value: 'enable' },
@@ -78,7 +78,7 @@ async function enable() {
           }
 
           resolve();
-        }
+        },
       );
 
       //
@@ -104,16 +104,18 @@ async function enable() {
         { silent: true },
         // eslint-disable-next-line sonarjs/no-identical-functions
         (error, stdout, stderr) => {
+          const values = stdout.trim().split('\n');
           if (
             error ||
             stderr ||
-            !stdout.trim().match(new RegExp(`${proxy}/?`))
+            values.length !== 2 ||
+            !values.every((v) => v.match(new RegExp(`^${proxy}/?$`)))
           ) {
-            setError(stderr);
+            setError(stderr || 'Failed to set one or both npm proxies.');
           }
 
           resolve();
-        }
+        },
       );
 
       //
@@ -155,14 +157,14 @@ async function disable() {
                 }
 
                 resolve();
-              }
+              },
             );
 
             return;
           }
 
           resolve();
-        }
+        },
       );
 
       //
@@ -186,12 +188,13 @@ async function disable() {
         `npm config --global delete proxy && npm config --global delete https-proxy && npm config --global get proxy && npm config --global get https-proxy`,
         { silent: true },
         (error, stdout, stderr) => {
-          if (error || stderr || stdout.trim() !== 'null') {
-            setError(stderr);
+          const values = stdout.trim().split('\n');
+          if (error || stderr || values.some((v) => v !== 'null')) {
+            setError(stderr || 'Failed to disable npm proxy.');
           }
 
           resolve();
-        }
+        },
       );
 
       //
